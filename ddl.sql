@@ -1,8 +1,4 @@
 -- DDL script for database, setting up the fundamental relationships.
--- Many-to-many relationship between teams and users, as well as between links
--- and tags.
-
--- Run using `psql -U hamster_admin -d hamster -f ./ddl.sql`.
 
 DROP TABLE IF EXISTS weblink_tag;
 DROP TABLE IF EXISTS tag;
