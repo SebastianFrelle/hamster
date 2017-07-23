@@ -29,8 +29,7 @@ CREATE TABLE weblink (
     weblink_id serial PRIMARY KEY,
     weblink_address text NOT NULL,
     weblink_date date NOT NULL DEFAULT CURRENT_DATE,
-    weblink_creator serial REFERENCES person
-            ON UPDATE CASCADE ON DELETE SET NULL,
+    weblink_creator serial REFERENCES person ON DELETE SET NULL,
     weblink_team serial REFERENCES team ON DELETE CASCADE
 );
 
@@ -44,7 +43,7 @@ CREATE TABLE tag (
 
 -- n:m relationship between weblinks and tags
 CREATE TABLE weblink_tag (
-    weblink_id serial REFERENCES weblink ON UPDATE CASCADE ON DELETE CASCADE,
-    tag_id serial REFERENCES tag ON UPDATE CASCADE ON DELETE RESTRICT,
+    weblink_id serial REFERENCES weblink ON DELETE CASCADE,
+    tag_id serial REFERENCES tag ON DELETE RESTRICT,
     PRIMARY KEY (weblink_id, tag_id)
 );
