@@ -1,3 +1,5 @@
+-- DDL script for setting up the Hamster database.
+
 DROP TABLE IF EXISTS weblink_tag;
 DROP TABLE IF EXISTS tag;
 DROP TABLE IF EXISTS weblink;
