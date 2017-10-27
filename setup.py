@@ -1,6 +1,22 @@
 """Hamster
 """
+from pathlib import Path
+
 from setuptools import setup, find_packages
+
+REQ_PATH = './requirements.txt'
+
+
+def requirements(req_path=REQ_PATH):
+    p = Path(req_path)
+    if not p.is_file():
+        return []
+
+    text = str.strip(p.read_text())
+    dependencies = str.split(text, '\n')
+
+    return dependencies
+
 
 setup(
     name="hamster",
@@ -10,9 +26,7 @@ setup(
     packages=find_packages(),
 
     # requirements
-    install_requires=[
-        'flask-restful',
-    ],
+    install_requires=requirements,
 
     test_suite="tests",
 
